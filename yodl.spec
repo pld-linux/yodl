@@ -57,13 +57,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/yodl
 
 %{_mandir}/man?/*
-
-%changelog
-* Fri Jun 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.31.13-1]
-- Prereq: bash changed to BuildPrereq: bash,
-- changed Group to Utilities/Text and added Group(pl).
-
-* Thu Jun 24 1999 Jan Rêkorajski <baggins@pld.org.pl>
-  [1.31.0-1]
-- spec for PLD
