@@ -9,7 +9,7 @@ Group(pl):	Narzêdzia/Tekst
 Source:		ftp://ftp.lilypond.org/pub/yodl/development/%{name}-%{version}.tar.gz
 URL:		http://www.xs4all.nl/~jantien/yodl/
 BuildRequires:	bash
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description 
 Yodl is a package that implements a pre-document language and tools to
