@@ -11,7 +11,7 @@ BuildRequires:	bash
 BuildRequires:	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%description 
+%description
 Yodl is a package that implements a pre-document language and tools to
 process it. The idea of Yodl is that you write up a document in a
 pre-language, then use the tools (e.g. yodl2html) to convert it to
@@ -35,7 +35,7 @@ text. G³ówne typy dokumentów to "artyku³", "raport", "ksi±¿ka" i
 
 %build
 ac_cv_prog_BASH=/bin/bash; export ac_cv_prog_BASH
-%configure2_13 
+%configure2_13
 %{__make} all
 
 %install
