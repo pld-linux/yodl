@@ -2,7 +2,7 @@ Summary:	Yodl: Yet oneOther Document Language
 Summary(pl):	Yodl: Jeszcze jeden jêzyk opisu dokumentów
 Name:		yodl
 Version:	1.31.18
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
@@ -27,7 +27,7 @@ document language is designed to be easy to use and extensible.
 
 %build
 ac_cv_prog_BASH=/bin/bash; export ac_cv_prog_BASH
-%configure 
+%configure2_13 
 %{__make} all
 
 %install
