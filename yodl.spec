@@ -22,6 +22,16 @@ man, LaTeX SGML and texinfo, plus a poor-man's text converter. Main
 document types are "article", "report", "book" and "manpage". The Yodl
 document language is designed to be easy to use and extensible.
 
+%description -l pl
+Yodl to pakiet z implementacj± jêzyka pre-dokumentu i narzêdzi do jego
+przetwarzania. Idea Yodla jest taka, ¿e pisze siê dokument w
+pre-jêzyku, nastêpnie u¿ywa narzêdzi (np. yodl2html) by
+przekonwertowaæ go do jakiego¶ docelowego jêzyka dokumentu. Aktualnie
+yodl zawiera konwertery do: HTML, ms, man, LaTeX, SGML i texinfo, oraz
+text. G³ówne typy dokumentów to "artyku³", "raport", "ksi±¿ka" i
+"strona podrêcznika man". Jêzyk Yodl by³ projektowany tak, by byæ
+³atwy w u¿yciu i rozszerzalny.
+
 %prep
 %setup -q
 
