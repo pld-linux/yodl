@@ -43,11 +43,11 @@ ac_cv_prog_BASH=/bin/bash; export ac_cv_prog_BASH
 rm -rf $RPM_BUILD_ROOT
 %{__make} -C Documentation info || true
 %{__make} install \
-	prefix=$RPM_BUILD_ROOT/%{_prefix} \
-	mandir=$RPM_BUILD_ROOT/%{_mandir} \
-	bindir=$RPM_BUILD_ROOT/%{_bindir} \
-	infodir=$RPM_BUILD_ROOT/%{_infodir} \
-	datadir=$RPM_BUILD_ROOT/%{_datadir}/yodl
+	prefix=$RPM_BUILD_ROOT%{_prefix} \
+	mandir=$RPM_BUILD_ROOT%{_mandir} \
+	bindir=$RPM_BUILD_ROOT%{_bindir} \
+	infodir=$RPM_BUILD_ROOT%{_infodir} \
+	datadir=$RPM_BUILD_ROOT%{_datadir}/yodl
 
 %clean
 rm -rf $RPM_BUILD_ROOT
