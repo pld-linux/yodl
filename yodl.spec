@@ -1,6 +1,6 @@
 Summary:	Yodl: Yet oneOther Document Language
 Name:		yodl
-Version:	1.31.14
+Version:	1.31.15
 Release:	1
 Copyright:	GPL
 Group:		Utilities/Text
