@@ -1,6 +1,7 @@
 Summary:	Yodl: Yet oneOther Document Language
+Summary(pl):	Yodl: Jeszcze jeden jêzyk opisu dokumentów
 Name:		yodl
-Version:	1.31.15
+Version:	1.31.18
 Release:	1
 Copyright:	GPL
 Group:		Utilities/Text
@@ -11,15 +12,13 @@ BuildRequires:	bash
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description 
-Yodl  is  a  package that implements a pre-document language
-and tools to process it.  The idea of Yodl is that you write
-up  a  document  in a pre-language, then use the tools (e.g.
-yodl2html) to convert it to some  final  document  language.
-Current  converters  are  for  HTML, ms, man, LaTeX SGML and
-texinfo, plus a poor-man's text  converter.   Main  document
-types  are  "article",  "report", "book" and "manpage".  The
-Yodl document language is designed to be  easy  to  use  and
-extensible.
+Yodl is a package that implements a pre-document language and tools to
+process it. The idea of Yodl is that you write up a document in a
+pre-language, then use the tools (e.g. yodl2html) to convert it to some
+final document language. Current converters are for HTML, ms, man, LaTeX
+SGML and texinfo, plus a poor-man's text converter. Main document types are
+"article", "report", "book" and "manpage". The Yodl document language is
+designed to be easy to use and extensible.
 
 %prep
 %setup -q
@@ -42,15 +41,14 @@ make install \
 
 gzip -9nf $RPM_BUILD_ROOT/%{_mandir}/man?/* \
 	ANNOUNCE.txt AUTHORS.txt PATCHES.txt README.txt \
-	NEWS TODO ANNOUNCE-1.22 ChangeLog-1.22
+	CHANGES TODO ANNOUNCE-1.22 ChangeLog-1.22
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {ANNOUNCE,AUTHORS,README}.txt.gz
-%doc {NEWS,TODO,ANNOUNCE-1.22,ChangeLog-1.22}.gz
+%doc *.gz
 # verbatim include of Documentation: list the directory without issuing a %dir
 %doc Documentation
 %attr(755,root,root) %{_bindir}/*
