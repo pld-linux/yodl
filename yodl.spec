@@ -48,15 +48,13 @@ rm -rf $RPM_BUILD_ROOT
 	infodir=$RPM_BUILD_ROOT/%{_infodir} \
 	datadir=$RPM_BUILD_ROOT/%{_datadir}/yodl
 
-gzip -9nf ANNOUNCE.txt AUTHORS.txt PATCHES.txt README.txt \
-	CHANGES TODO ANNOUNCE-1.22 ChangeLog-1.22
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc ANNOUNCE.txt AUTHORS.txt PATCHES.txt README.txt CHANGES TODO
+%doc ANNOUNCE-1.22 ChangeLog-1.22
 # verbatim include of Documentation: list the directory without issuing a %dir
 %doc Documentation
 %attr(755,root,root) %{_bindir}/*
