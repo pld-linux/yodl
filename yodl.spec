@@ -50,6 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 
 %files
+%defattr(644, root, root, 755)
 %doc {ANNOUNCE.txt,AUTHORS.txt,COPYING,INSTALL.txt,PATCHES.txt,README.txt}.gz
 %doc {NEWS,TODO,ANNOUNCE-1.22,ChangeLog-1.22}.gz
 # verbatim include of Documentation: list the directory without issuing a %dir
