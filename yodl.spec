@@ -6,6 +6,7 @@ Release:	4
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.lilypond.org/pub/yodl/development/%{name}-%{version}.tar.gz
+# Source0-md5:	247c5bf178baeb1f0b96511323f30a61
 URL:		http://www.xs4all.nl/~jantien/yodl/
 BuildRequires:	bash
 BuildRequires:	python
