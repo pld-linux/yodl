@@ -26,7 +26,6 @@ designed to be easy to use and extensible.
 
 %build
 ac_cv_prog_BASH=/bin/bash; export ac_cv_prog_BASH
-LDFLAGS="-s"; export LDFLAGS
 %configure 
 %{__make} all
 
@@ -40,8 +39,7 @@ rm -rf $RPM_BUILD_ROOT
 	infodir=$RPM_BUILD_ROOT/%{_infodir} \
 	datadir=$RPM_BUILD_ROOT/%{_datadir}/yodl
 
-gzip -9nf $RPM_BUILD_ROOT/%{_mandir}/man?/* \
-	ANNOUNCE.txt AUTHORS.txt PATCHES.txt README.txt \
+gzip -9nf ANNOUNCE.txt AUTHORS.txt PATCHES.txt README.txt \
 	CHANGES TODO ANNOUNCE-1.22 ChangeLog-1.22
 
 %clean
