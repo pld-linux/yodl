@@ -1,13 +1,14 @@
 Summary:	Yodl: Yet oneOther Document Language
 Name:		yodl
-Version:	1.31.0
+Version:	1.31.13
 Release:	1
 Copyright:	GPL
-Group:		Converters/Text
+Group:		Utilities/Text
+Group(pl):	Narzêdzia/Tekst
 Source:		ftp://ftp.lilypond.org/pub/yodl/development/%{name}-%{version}.tar.gz
 URL:		http://www.xs4all.nl/~jantien/yodl/
+BuildPrereq:	bash
 BuildRoot:	/tmp/%{name}-%{version}-root
-Prereq:		bash
 
 %description 
 Yodl  is  a  package that implements a pre-document language
@@ -58,6 +59,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man?/*
 
 %changelog
+* Fri Jun 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.31.13-1]
+- Prereq: bash changed to BuildPrereq: bash,
+- changed Group to Utilities/Text and added Group(pl).
+
 * Thu Jun 24 1999 Jan Rêkorajski <baggins@pld.org.pl>
   [1.31.0-1]
 - spec for PLD
