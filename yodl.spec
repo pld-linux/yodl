@@ -2,11 +2,12 @@ Summary:	Yodl: Yet oneOther Document Language
 Summary(pl):	Yodl: Jeszcze jeden jêzyk opisu dokumentów
 Name:		yodl
 Version:	1.31.18
-Release:	1
-Copyright:	GPL
-Group:		Utilities/Text
-Group(pl):	Narzêdzia/Tekst
-Source:		ftp://ftp.lilypond.org/pub/yodl/development/%{name}-%{version}.tar.gz
+Release:	2
+License:	GPL
+Group:		Applications/Text
+Group(de):	Applikationen/Text
+Group(pl):	Aplikacje/Tekst
+Source0:	ftp://ftp.lilypond.org/pub/yodl/development/%{name}-%{version}.tar.gz
 URL:		http://www.xs4all.nl/~jantien/yodl/
 BuildRequires:	bash
 BuildRequires:	python
@@ -15,11 +16,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description 
 Yodl is a package that implements a pre-document language and tools to
 process it. The idea of Yodl is that you write up a document in a
-pre-language, then use the tools (e.g. yodl2html) to convert it to some
-final document language. Current converters are for HTML, ms, man, LaTeX
-SGML and texinfo, plus a poor-man's text converter. Main document types are
-"article", "report", "book" and "manpage". The Yodl document language is
-designed to be easy to use and extensible.
+pre-language, then use the tools (e.g. yodl2html) to convert it to
+some final document language. Current converters are for HTML, ms,
+man, LaTeX SGML and texinfo, plus a poor-man's text converter. Main
+document types are "article", "report", "book" and "manpage". The Yodl
+document language is designed to be easy to use and extensible.
 
 %prep
 %setup -q
