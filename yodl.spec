@@ -9,6 +9,7 @@ Group(pl):	Narzêdzia/Tekst
 Source:		ftp://ftp.lilypond.org/pub/yodl/development/%{name}-%{version}.tar.gz
 URL:		http://www.xs4all.nl/~jantien/yodl/
 BuildRequires:	bash
+BuildRequires:	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description 
