@@ -24,7 +24,8 @@ extensible.
 %setup -q
 
 %build
-export ac_cv_prog_BASH=/bin/bash
+ac_cv_prog_BASH=/bin/bash; export ac_cv_prog_BASH
+LDFLAGS="-s"; export LDFLAGS
 %configure --prefix=%{_prefix}
 make all
 
@@ -38,28 +39,23 @@ make install \
 	infodir=$RPM_BUILD_ROOT/%{_infodir} \
 	datadir=$RPM_BUILD_ROOT/%{_datadir}/yodl
 
-strip --strip-unneeded $RPM_BUILD_ROOT/%{_bindir}/* || :
-
-gzip -9nf $RPM_BUILD_ROOT/%{_mandir}/man{1,7}/* \
-	ANNOUNCE.txt AUTHORS.txt COPYING INSTALL.txt PATCHES.txt README.txt \
+gzip -9nf $RPM_BUILD_ROOT/%{_mandir}/man?/* \
+	ANNOUNCE.txt AUTHORS.txt PATCHES.txt README.txt \
 	NEWS TODO ANNOUNCE-1.22 ChangeLog-1.22
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-
 %files
-%defattr(644, root, root, 755)
-%doc {ANNOUNCE.txt,AUTHORS.txt,COPYING,INSTALL.txt,PATCHES.txt,README.txt}.gz
+%defattr(644,root,root,755)
+%doc {ANNOUNCE,AUTHORS,README}.txt.gz
 %doc {NEWS,TODO,ANNOUNCE-1.22,ChangeLog-1.22}.gz
 # verbatim include of Documentation: list the directory without issuing a %dir
 %doc Documentation
-%dir /usr/share/yodl
-%attr(755, root, root) %{_bindir}/*
-/usr/share/yodl/*
-%{_mandir}/man1/*
-%{_mandir}/man7/*
+%attr(755,root,root) %{_bindir}/*
+%{_datadir}/yodl
+
+%{_mandir}/man?/*
 
 %changelog
 * Thu Jun 24 1999 Jan Rêkorajski <baggins@pld.org.pl>
