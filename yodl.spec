@@ -2,7 +2,7 @@ Summary:	Yodl: Yet oneOther Document Language
 Summary(pl):	Yodl: Jeszcze jeden jêzyk opisu dokumentów
 Name:		yodl
 Version:	1.31.18
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.lilypond.org/pub/yodl/development/%{name}-%{version}.tar.gz
