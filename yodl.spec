@@ -7,7 +7,7 @@ Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
 Source:		ftp://ftp.lilypond.org/pub/yodl/development/%{name}-%{version}.tar.gz
 URL:		http://www.xs4all.nl/~jantien/yodl/
-BuildPrereq:	bash
+BuildRequires:	bash
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description 
