@@ -27,12 +27,12 @@ designed to be easy to use and extensible.
 ac_cv_prog_BASH=/bin/bash; export ac_cv_prog_BASH
 LDFLAGS="-s"; export LDFLAGS
 %configure 
-make all
+%{__make} all
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make -C Documentation info || true
-make install \
+%{__make} -C Documentation info || true
+%{__make} install \
 	prefix=$RPM_BUILD_ROOT/%{_prefix} \
 	mandir=$RPM_BUILD_ROOT/%{_mandir} \
 	bindir=$RPM_BUILD_ROOT/%{_bindir} \
