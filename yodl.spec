@@ -1,6 +1,6 @@
 Summary:	Yodl: Yet oneOther Document Language
 Name:		yodl
-Version:	1.31.13
+Version:	1.31.14
 Release:	1
 Copyright:	GPL
 Group:		Utilities/Text
@@ -27,7 +27,7 @@ extensible.
 %build
 ac_cv_prog_BASH=/bin/bash; export ac_cv_prog_BASH
 LDFLAGS="-s"; export LDFLAGS
-%configure --prefix=%{_prefix}
+%configure 
 make all
 
 %install
