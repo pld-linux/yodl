@@ -5,8 +5,6 @@ Version:	1.31.18
 Release:	3
 License:	GPL
 Group:		Applications/Text
-Group(de):	Applikationen/Text
-Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.lilypond.org/pub/yodl/development/%{name}-%{version}.tar.gz
 URL:		http://www.xs4all.nl/~jantien/yodl/
 BuildRequires:	bash
