@@ -1,5 +1,5 @@
 Summary:	Yodl: Yet oneOther Document Language
-Summary(pl.UTF-8):   Yodl: Jeszcze jeden język opisu dokumentów
+Summary(pl.UTF-8):	Yodl: Jeszcze jeden język opisu dokumentów
 Name:		yodl
 Version:	1.31.18
 Release:	5
