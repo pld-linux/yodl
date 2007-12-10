@@ -2,7 +2,7 @@ Summary:	Yodl: Yet oneOther Document Language
 Summary(pl.UTF-8):	Yodl: Jeszcze jeden język opisu dokumentów
 Name:		yodl
 Version:	1.31.18
-Release:	5
+Release:	6
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.lilypond.org/pub/yodl/development/%{name}-%{version}.tar.gz
@@ -11,6 +11,8 @@ URL:		http://www.xs4all.nl/~jantien/yodl/
 BuildRequires:	bash
 BuildRequires:	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define	_udatadir	%{_datadir}/%{name}
 
 %description
 Yodl is a package that implements a pre-document language and tools to
@@ -47,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 	mandir=$RPM_BUILD_ROOT%{_mandir} \
 	bindir=$RPM_BUILD_ROOT%{_bindir} \
 	infodir=$RPM_BUILD_ROOT%{_infodir} \
-	datadir=$RPM_BUILD_ROOT%{_datadir}/yodl
+	datadir=$RPM_BUILD_ROOT%{_udatadir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
