@@ -2,7 +2,7 @@ Summary:	Yodl: Yet oneOther Document Language
 Summary(pl.UTF-8):	Yodl: Jeszcze jeden język opisu dokumentów
 Name:		yodl
 Version:	1.31.18
-Release:	6
+Release:	7
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.lilypond.org/pub/yodl/development/%{name}-%{version}.tar.gz
@@ -38,7 +38,8 @@ text. Główne typy dokumentów to "artykuł", "raport", "książka" i
 
 %build
 ac_cv_prog_BASH=/bin/bash; export ac_cv_prog_BASH
-%configure2_13
+%configure2_13 \
+	--datadir=%{_udatadir}
 %{__make} all
 
 %install
