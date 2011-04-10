@@ -1,14 +1,15 @@
 Summary:	Yodl: Yet oneOther Document Language
 Summary(pl.UTF-8):	Yodl: Jeszcze jeden język opisu dokumentów
 Name:		yodl
-Version:	1.31.18
-Release:	7
+Version:	3.00.0
+Release:	1
 License:	GPL
 Group:		Applications/Text
-Source0:	ftp://ftp.lilypond.org/pub/yodl/development/%{name}-%{version}.tar.gz
-# Source0-md5:	247c5bf178baeb1f0b96511323f30a61
-URL:		http://www.xs4all.nl/~jantien/yodl/
+Source0:	http://downloads.sourceforge.net/yodl/%{name}_%{version}.orig.tar.gz
+# Source0-md5:	804703769e7995e25f5f5dd59ca3377c
+URL:		http://downloads.sourceforge.net/
 BuildRequires:	bash
+BuildRequires:	icmake
 BuildRequires:	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -35,33 +36,33 @@ text. Główne typy dokumentów to "artykuł", "raport", "książka" i
 
 %prep
 %setup -q
+sed -i -e 's#-O2#%{rpmcflags} %{rpmcppflags}#g' build
+sed -i -e 's#gcc#%{__cc}#g' INSTALL.im
 
 %build
-ac_cv_prog_BASH=/bin/bash; export ac_cv_prog_BASH
-%configure2_13 \
-	--datadir=%{_udatadir}
-%{__make} all
+./build programs
+./build man
+./build manual
+./build macros
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} -C Documentation info || true
-%{__make} install \
-	prefix=$RPM_BUILD_ROOT%{_prefix} \
-	mandir=$RPM_BUILD_ROOT%{_mandir} \
-	bindir=$RPM_BUILD_ROOT%{_bindir} \
-	infodir=$RPM_BUILD_ROOT%{_infodir} \
-	datadir=$RPM_BUILD_ROOT%{_udatadir}
+
+./build install programs $RPM_BUILD_ROOT
+./build install man $RPM_BUILD_ROOT
+./build install manual $RPM_BUILD_ROOT
+./build install macros $RPM_BUILD_ROOT
+./build install docs $RPM_BUILD_ROOT
+
+cp -a $RPM_BUILD_ROOT%{_datadir}/doc/yodl-doc .
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ANNOUNCE.txt AUTHORS.txt PATCHES.txt README.txt CHANGES TODO
-%doc ANNOUNCE-1.22 ChangeLog-1.22
-# verbatim include of Documentation: list the directory without issuing a %dir
-%doc Documentation
-%attr(755,root,root) %{_bindir}/*
+%doc AUTHORS.txt CHANGES README* yodl-doc
+%attr(755,root,root) %{_bindir}/yodl*
 %{_datadir}/yodl
-
-%{_mandir}/man?/*
+%{_mandir}/man1/*.1*
+%{_mandir}/man7/*.7*
