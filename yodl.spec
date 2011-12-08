@@ -64,5 +64,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS.txt CHANGES README* yodl-doc
 %attr(755,root,root) %{_bindir}/yodl*
 %{_datadir}/yodl
-%{_mandir}/man1/*.1*
-%{_mandir}/man7/*.7*
+%{_mandir}/man1/yodl*.1*
+%{_mandir}/man7/yodl*.7*
