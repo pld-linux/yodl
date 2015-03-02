@@ -2,7 +2,7 @@ Summary:	Yodl: Yet oneOther Document Language
 Summary(pl.UTF-8):	Yodl: Jeszcze jeden język opisu dokumentów
 Name:		yodl
 Version:	3.00.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Text
 Source0:	http://downloads.sourceforge.net/yodl/%{name}_%{version}.orig.tar.gz
