@@ -1,16 +1,19 @@
 Summary:	Yodl: Yet oneOther Document Language
-Summary(pl.UTF-8):	Yodl: Jeszcze jeden język opisu dokumentów
+Summary(pl.UTF-8):	Yodl - jeszcze jeden język opisu dokumentów
 Name:		yodl
-Version:	3.00.0
-Release:	2
-License:	GPL
+Version:	3.05.01
+Release:	1
+# according to src/yodl/warranty.c (although GPL v3 text is included in LICENSE)
+License:	GPL v2
 Group:		Applications/Text
 Source0:	http://downloads.sourceforge.net/yodl/%{name}_%{version}.orig.tar.gz
-# Source0-md5:	804703769e7995e25f5f5dd59ca3377c
-URL:		http://downloads.sourceforge.net/
+# Source0-md5:	68bdd1de6da7f49e510da69a99dc26f2
+URL:		https://gitlab.com/fbb-git/yodl
 BuildRequires:	bash
 BuildRequires:	icmake
+BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	python
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define	_udatadir	%{_datadir}/%{name}
@@ -36,32 +39,35 @@ text. Główne typy dokumentów to "artykuł", "raport", "książka" i
 
 %prep
 %setup -q
-sed -i -e 's#-O2#%{rpmcflags} %{rpmcppflags}#g' build
-sed -i -e 's#gcc#%{__cc}#g' INSTALL.im
+
+%{__sed} -i -e 's#-O2#%{rpmcflags} %{rpmcppflags}#g' build
+%{__sed} -i -e '/COMPILER/ s#gcc#%{__cc}#' -e '/CXX/ s#g++#%{__cxx}#' INSTALL.im
 
 %build
 ./build programs
+./build macros
 ./build man
 ./build manual
-./build macros
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 ./build install programs $RPM_BUILD_ROOT
+./build install macros $RPM_BUILD_ROOT
 ./build install man $RPM_BUILD_ROOT
 ./build install manual $RPM_BUILD_ROOT
-./build install macros $RPM_BUILD_ROOT
 ./build install docs $RPM_BUILD_ROOT
 
-cp -a $RPM_BUILD_ROOT%{_datadir}/doc/yodl-doc .
+rm -rf yodl-doc
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/doc/yodl-doc .
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/yodl
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS.txt CHANGES README* yodl-doc
+%doc AUTHORS.txt CHANGES README* changelog yodl-doc
 %attr(755,root,root) %{_bindir}/yodl*
 %{_datadir}/yodl
 %{_mandir}/man1/yodl*.1*
